@@ -1,0 +1,72 @@
+﻿@model HomeVM
+@{
+
+}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you want to delete?
+      </div>
+      <div class="modal-footer">
+		<form method="post" asp-action="Delete">
+			<button type="submit" class="btn btn-primary">Yes</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Model End-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image">
+		  <thead>
+		    <tr>
+		      <th scope="col">Id</th>
+		      <th scope="col">Image</th>
+		      <th scope="col">Title</th>
+		      <th scope="col">Text</th>
+		      <th scope="col">Button Text</th>
+		      <th scope="col">Button Url</th>
+			  <th scope="col">Operations</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+			 @foreach (var item in Model.ClientComments)
+			{
+				Client client = @Model.Clients.Find(x=>x.Id == item.ClientId);
+				<tr>
+		      <th scope="row">@item.Id</th>
+		      <td class="w-25">
+			   <img src="~/assets/img/@client.Image" class="img-fluid img-thumbnail">
+		      </td>
+		      <td class="align-middle"> @client.FullName</td>
+		      <td class="align-middle">@item.Comment</td>
+			  <td class="align-middle">
+				  <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+				  <button type="button" data-id="@item.Id" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+			  </td>
+		    </tr>
+			}
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
+@section scripts{
+	<script>
+		let url = $(".modal-footer form").attr("action")
+     $(".btn-outline-danger").click(function(){
+         console.log(typeof $(this).attr("data-id"))
+         $(".modal-footer form").attr("action", url + "/" + $(this).attr("data-id"))
+     })
+	</script>
+}

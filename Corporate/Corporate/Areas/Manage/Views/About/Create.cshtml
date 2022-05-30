@@ -1,0 +1,19 @@
+﻿@model AboutCarts
+@{
+}
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data">
+        <label asp-for="CartIcon">Cart Icon (Class Names)</label>
+        <input asp-for="CartIcon" class="form-control">
+        <span asp-validation-for="CartIcon"></span>
+
+        <label asp-for="CartTitle"></label>
+        <input asp-for="CartTitle" class="form-control">
+        <span asp-validation-for="CartTitle"></span>
+
+        <label asp-for="CartDescription"></label>
+        <input asp-for="CartDescription" class="form-control">
+        <span asp-validation-for="CartDescription"></span>
+        <button type="submit" class="btn btn-primary mt-3">Create</button>
+    </form>
+</div>

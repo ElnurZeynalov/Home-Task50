@@ -1,0 +1,275 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!--Slider Start-->
+<section id="home" class="home">
+    <div id="rev_slider_22_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="ntg_slider1" data-source="gallery" style="margin:0px auto;background:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+        <!-- START REVOLUTION SLIDER 5.4.8.1 fullwidth mode -->
+        <div id="rev_slider_22_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.8.1">
+            <ul>
+                <!-- SLIDE  -->
+                @for (var i = 0; i < @Model.Slider.Count; i++) //Mellim slider yazan agilli data-index istifade eliyib ona gore mecbur for isdetdim(mende bele isleyeceyine emin deyildim ama sinaidm oldu :D)
+                {
+                    <li data-index="rs-95 + @i" data-transition="crossfade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <!-- MAIN IMAGE -->
+                    <img src="~/assets/img/@Model.Slider[i].Image" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+                    <div class="bg-overlay bg-black opacity-5"></div>
+                        <!-- LAYER NR. 1 -->
+                    <div class="tp-caption   tp-resizeme"
+                         data-x="['center','center','center','center']" data-hoffset="['0','0','-1','-1']"
+                         data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-65']"
+                         data-fontsize="['70','70','55','40']"
+                         data-lineheight="['75','75','60','60']"
+                         data-width="['1000','1000','600','450']"
+                         data-height="none"
+                         data-whitespace="nowrap"
+                         data-type="text"
+                         data-responsive_offset="on"
+                         data-frames='[{"delay":330,"speed":1490,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":310,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                         data-textAlign="['center','center','center','center']"
+                         data-paddingtop="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]"
+                         data-paddingbottom="[0,0,0,0]"
+                         data-paddingleft="[0,0,0,0]"
+                         style="z-index: 5; min-width: 1000px; max-width: 1000px; white-space: nowrap; font-size: 70px; line-height: 75px; font-weight: 700; color: #ffffff; letter-spacing: 0px;font-family: 'UbuntuTitling', Arial, sans-serif;">
+                            @Model.Slider[i].Title
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                    <div class="tp-caption   tp-resizeme"
+                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                         data-y="['middle','middle','middle','middle']" data-voffset="['0','0','-11','-11']"
+                         data-fontsize="['20','20','18','16']"
+                         data-width="['800','800','600','450']"
+                         data-height="none"
+                         data-whitespace="normal"
+                         data-type="text"
+                         data-responsive_offset="on"
+                         data-frames='[{"delay":1430,"speed":1490,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":310,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                         data-textAlign="['center','center','center','center']"
+                         data-paddingtop="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]"
+                         data-paddingbottom="[0,0,0,0]"
+                         data-paddingleft="[0,0,0,0]"
+                         style="z-index: 6; min-width: 800px; max-width: 800px; white-space: normal; font-size: 18px; line-height: 20px; font-weight: 300; color: #ffffff; letter-spacing: 1px;font-family: 'Ubuntu', sans-serif;">
+                            @Model.Slider[i].Text
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                    <div class="tp-caption   tp-resizeme"
+                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                         data-y="['middle','top','middle','middle']" data-voffset="['69','370','50','70']"
+                         data-width="['801','801','600','450']"
+                         data-height="none"
+                         data-whitespace="normal"
+                         data-type="text"
+                         data-responsive_offset="on"
+                         data-frames='[{"delay":2570,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":310,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                         data-textAlign="['center','center','center','center']"
+                         data-paddingtop="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]"
+                         data-paddingbottom="[0,0,0,0]"
+                         data-paddingleft="[0,0,0,0]"
+                         style="z-index: 7; ">
+                            <a class="btn btn-large btn-blue mr-3 btn-hvr-white" href="@Model.Slider[i].Button1Url">@Model.Slider[i].Button1Text</a><a class="btn btn-large btn-green btn-hvr-white" href="@Model.Slider[i].Button2Url">@Model.Slider[i].Button2Text</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+        </div>
+    </div><!-- END REVOLUTION SLIDER -->
+</section>
+<!--Slider End-->
+<!--About Start-->
+<section id="about" class="about-top pt-lg-0">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-lg-4 col-md-12">
+                <!--Heading-->
+                <div class="title mb-md-0">
+                    <h2>
+                        The Ultimate Theme
+                        For A <span class="main-color">Wonderful</span> And
+                        <span class="main-color">Creative</span> Website
+                    </h2>
+                    <!--Button-->
+                    <a href="javascript:void(0);" class="btn btn-large btn-green mt-4 mb-5">GET STARTED NOW</a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <ul class="feature-box">
+                    <!--Feature Item-->
+                    @foreach (var item in Model.AboutCarts)
+                    {
+                        <li class="feature-item">
+                            <i class="@item.CartIcon" aria-hidden="true"></i>
+                            <h4 class="mb-3">@item.CartTitle</h4>
+                            <p>@item.CartDescription</p>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--About End-->
+<!--Parallax Start-->
+<section id="services" class="parallax-content p-0 bg-img1">
+    <!--Half Image-->
+    <div class="half-right">
+        <img src="~/assets/img/half-img1.jpg" alt="image" class="equalheight">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 wow fadeInLeft">
+                <div class="content-box equalheight center-block">
+                    <!--Heading-->
+                    <div class="title">
+                        <h5 class="mb-3 text-white">Conversion analytics and insights </h5>
+                        <h2 class="text-white">We empower your organization
+                            by creating beautiful websites </h2>
+
+                        <ul class="content-list alt-font text-white">
+                            <li><i class="fas fa-check"></i> The most intuitive drag and drop builder</li>
+                            <li><i class="fas fa-check"></i> Target each campaing to the right users</li>
+                            <li><i class="fas fa-check"></i> Learn and optimize with A/B testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Parallax End-->
+<!--Portfolio Start-->
+<section id="portfolio" class="portfolio1 no-transition pb-0 text-center">
+    <div class="container">
+
+        <div class="row wow fadeIn">
+            <!--title-->
+            <div class="col-md-12">
+                <!--Heading-->
+                <div class="title">
+                    <h2>World Class Portfolio</h2>
+                    <!--Portfolio Filters-->
+                    <div id="js-filters-mosaic-flat" class="cbp-l-filters-button alt-font">
+
+                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All</div>
+                        <span class="text-blue">/</span>
+                        @foreach (var item in @Model.PortfolioCategories)
+                       {
+                           <div data-filter=".@item.Name" class="cbp-filter-item">@item.Name</div>
+                        <span class="text-blue"> / </span>
+                       }
+                        
+                    </div>
+                    <!--Portfolio Items-->
+                    <div id="js-grid-mosaic-flat" class="cbp cbp-l-grid-mosaic-flat">
+                        @foreach (var item in @Model.PortfolioItems)
+                        {
+                            PortfolioCategory category = @Model.PortfolioCategories.Find(x => x.Id == item.CategoryId);
+                            <!-- Item -->
+                              <div class="cbp-item @category.Name">
+                            <a href="img/@item.Image" class="cbp-caption cbp-lightbox">
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="~/assets/img/@item.Image" alt="port-1">
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <i class="fas fa-long-arrow-alt-right p-icon"></i>
+                                    <div class="port-content">
+                                           <p class="mb-1 main-color">@category.Name</p>
+                                        <h5>@item.Text</h5>
+                                    </div>
+                                </div>
+
+                            </a>
+                        </div>
+                       }
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!--portfolio-->
+            <div class="col-md-12 p-0">
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--Portfolio End-->
+
+<!--Contact Start-->
+<section id="contact" class="parallax-content bg-img1">
+    <div class="container">
+        <div class="row align-items-md-center">
+            <div class="col-lg-8">
+                <!--Heading-->
+                <div class="title">
+                    <h5 class="mb-3 text-white">Let discuss the project</h5>
+                    <h2 class="text-white">Drop us a word and we will get back to you
+                        with a no-obligatory quotation of your
+                        project.</h2>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci felis, feugiat in aliquam eu,
+                        dictum in arcu. Sed vel cursus lectus, quis placerat ipsum. Integer nec diam vel nunc.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInRight">
+                <!--Contact Form-->
+                <form class="contact-form" method="post" asp-action="Contact">
+                    <h4 class="mb-3">Get a free quote now</h4>
+                    <div id="result"></div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Name" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Email" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message" required=""></textarea>
+                    </div>
+
+                    <!--Button-->
+                    <button type="submit" class="btn btn-large btn-green d-block mt-4 contact_btn">Send Message</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--Contact End-->
+<!--Clients Start-->
+<section class="clients">
+    <div class="container">
+        <div class="owl-testimonial owl-carousel owl-theme wow fadeIn">
+            @foreach (var item in Model.ClientComments)
+           {
+               Client client = Model.Clients.Find(x=>x.Id==item.ClientId);
+                <div class="testimonial-item item text-center">
+                <div class="testimonial-text mb-3"><p>@item.Comment</p></div>
+                <div class="testimonial-photo"><img src="~/assets/img/@client.Image" alt="image"></div>
+                <h5 class="text-capitalize mt-3 mb-0">@client.FullName</h5>
+                <p class="text-small mb-0">@client.Company</p>
+                </div>  
+           }
+                   
+        </div>
+    </div>
+</section>
+<!--Clients End-->
+@section scripts{
+    <script>
+        $("button[type='button']").click(function(){
+            event.preventDefault();
+        })
+    </script>
+}

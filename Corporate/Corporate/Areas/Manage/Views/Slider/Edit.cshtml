@@ -1,0 +1,53 @@
+﻿@model Slider
+@{
+}
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col" >
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" ></span>
+            </div>
+            <div class="col">
+                <label asp-for="Photo"></label>
+                <input asp-for="Photo" class="form-control" action="image/*">
+                <span asp-validation-for="Photo"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Text">Description</label>
+                <textarea asp-for="Text" class="form-control"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Button1Text">Button 1 Text</label>
+                <input asp-for="Button1Text" class="form-control">
+                <span asp-validation-for="Button1Text"></span>
+            </div>
+            <div class="col">
+                <label asp-for="Button2Text">Button 2 Text</label>
+                <input asp-for="Button2Text" class="form-control">
+                <span asp-validation-for="Button2Text"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Button1Url">Button 1 Link</label>
+                <input asp-for="Button1Url" class="form-control">
+                <span asp-validation-for="Button1Url"></span>
+            </div>
+            <div class="col">
+                <label asp-for="Button2Url">Button 2 Link</label>
+                <input asp-for="Button2Url" class="form-control">
+                <span asp-validation-for="Button2Url" ></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Edit</button>
+    </form>
+</div>
+
